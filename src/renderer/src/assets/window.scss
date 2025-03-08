@@ -1,0 +1,63 @@
+$initial-animation-duration: 33000ms;
+$main-animation-duration: 44000ms;
+$animation-timing-function: linear;
+
+h1 {
+  position: fixed;
+  top: 20px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+}
+
+.quote {
+  font-size: 1.2rem;
+}
+
+#leftWindowQuoteContainer, #rightWindowQuoteContainer {
+  display: inline-block;
+  text-align: center;
+  max-width: 80%;
+}
+
+#leftWindowQuoteContainer {
+  animation: 
+    leftWindowInitialAnimation $initial-animation-duration $animation-timing-function,
+    leftWindowMainAnimation $main-animation-duration $animation-timing-function $initial-animation-duration infinite;
+}
+
+#rightWindowQuoteContainer {
+  animation:
+    rightWindowInitialAnimation $initial-animation-duration $animation-timing-function,
+    rightWindowMainAnimation $main-animation-duration $animation-timing-function $initial-animation-duration infinite;
+}
+
+@keyframes leftWindowInitialAnimation {
+  0% { transform: translateX(0%) }
+  50% { transform: translateX(calc(150vw - 50% - 7px)) }/*  */
+  100% { transform: translateX(0%) }
+}
+
+@keyframes leftWindowMainAnimation {
+  0% { transform: translateX(0%) }
+  12.5% { transform: translateX(calc(-50vw + 50% - 7px)) }/*  */
+  62.5% { transform: translateX(calc(150vw - 50% - 7px)) }/*  */
+  100% { transform: translateX(0%) }
+}
+
+@keyframes rightWindowInitialAnimation {
+  0% { transform: translateX(-100vw) }
+  50% { transform: translateX(calc(50vw - 50% - 7px)) }/*  */
+  100% { transform: translateX(-100vw) }
+}
+
+@keyframes rightWindowMainAnimation {
+  0% { transform: translateX(-100vw) }
+  12.5% { transform: translateX(calc(-150vw + 50% - 7px)) }/*  */
+  62.5% { transform: translateX(calc(50vw - 50% - 7px)) }/*  */
+  100% { transform: translateX(-100vw) }
+}
