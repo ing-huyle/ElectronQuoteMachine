@@ -1,6 +1,6 @@
 # ElectronQuoteMachine
 
-An Electron application with React and TypeScript
+An Electron application with React, Node.js and TypeScript.
 
 ## Project Setup
 
